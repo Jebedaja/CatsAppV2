@@ -1,0 +1,25 @@
+﻿@model List<CatsForum.Models.Comment>
+
+<h1>Cats Forum</h1>
+
+@foreach (var comment in Model)
+{
+    <div>
+        <p><strong>@comment.AuthorName</strong>: @comment.Content</p>
+    </div>
+}
+
+<hr />
+
+<h2>Add Comment</h2>
+<form asp-controller="CatsForum" asp-action="AddComment" method="post">
+    <div>
+        <label for="authorName">Author Name:</label>
+        <input type="text" id="authorName" name="AuthorName" required />
+    </div>
+    <div>
+        <label for="content">Content:</label>
+        <textarea id="content" name="Content" required></textarea>
+    </div>
+    <button type="submit">Add Comment</button>
+</form>
