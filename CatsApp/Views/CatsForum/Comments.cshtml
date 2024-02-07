@@ -9,17 +9,26 @@
     </div>
 }
 
-<hr />
+<hr/>
 
 <h2>Add Comment</h2>
 <form asp-controller="CatsForum" asp-action="AddComment" method="post">
     <div>
         <label for="authorName">Author Name:</label>
         <input type="text" id="authorName" name="AuthorName" required />
+        @if (Model.Count > 0)
+        {
+            <div class="text-danger">@Html.ValidationMessageFor(model => model[0].AuthorName)</div>
+        }
     </div>
     <div>
         <label for="content">Content:</label>
         <textarea id="content" name="Content" required></textarea>
+        @if (Model.Count > 0)
+        {
+            <div class="text-danger">@Html.ValidationMessageFor(model => model[0].Content)</div>
+        }
     </div>
     <button type="submit">Add Comment</button>
+    @Html.ValidationSummary()
 </form>

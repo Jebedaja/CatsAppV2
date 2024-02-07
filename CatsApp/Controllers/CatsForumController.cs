@@ -1,5 +1,4 @@
-﻿// CatsForumController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using CatsForum.Models;
 using System.Linq;
 using CatsApp.Data;
@@ -30,7 +29,10 @@ namespace CatsForum.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Comments");
             }
-            return View("Comments", comment);
+
+            return Comments();
         }
+
     }
 }
+

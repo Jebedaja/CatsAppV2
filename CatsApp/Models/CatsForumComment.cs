@@ -6,11 +6,10 @@ namespace CatsForum.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public string Content { get; set; }
-
-        [Required]
+        [StringLength(12, ErrorMessage = "Author Name cannot exceed 12 characters.")]
         public string AuthorName { get; set; }
+
+        [StringLength(100, ErrorMessage = "Comment cannot exceed 100 characters.")]
+        public string Content { get; set; }
     }
 }
-
